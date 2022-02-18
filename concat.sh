@@ -42,13 +42,9 @@ mkdir -p "$TEMP_DIR"
 
 unzip "$INPUT_FILE" -d "$TEMP_DIR"
 
-cd "$TEMP_DIR"
+mp3cat -d "$TEMP_DIR"
 
-mp3cat *
-
-ffmpeg -i "output.mp3" -metadata title="$TITLE" -metadata artist="$ARTIST" -metadata genre="$GENRE" -c copy "../$OUTPUT"
-
-cd ..
+ffmpeg -i "output.mp3" -metadata title="$TITLE" -metadata artist="$ARTIST" -metadata genre="$GENRE" -c copy "$OUTPUT"
 
 rm -rf "$TEMP_DIR"
 
